@@ -49,7 +49,13 @@ if __name__ == '__main__':
 	string = 'Hello Raspberry Pi XBee'
 	print "%s" % string
 	command = func
-	print command 
+	print command
 	print "Send!"
 	xbee.write(command)
+	print "isLisening..."
+	while True:
+		data = xbee.readline()
+		print data
+		if data == 'A':
+			break
 	xbee.close()
